@@ -23,10 +23,9 @@ service: realiza as chamadas para as apis
 module: carrega os components
 guard: protege as rotas (urls) da aplicação (retorna true para guarda autorizada)
 routing: organiza as rotas de um modulo
-
+s
 Obs: um modulo carrega vários componentes e outros módulos que carregam outros componentes
 um módulo carrega as rotas e as rotas especificam quando um componente deve ser carregado
-
 
 ## Build
 ng build
