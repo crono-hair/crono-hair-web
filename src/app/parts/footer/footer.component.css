@@ -1,0 +1,17 @@
+.footer {
+  padding: 5px;
+  text-align: center;
+  background: #1d2735;
+  color: #ffffff;
+  box-shadow: 2px 0px 11px 2px #00000047;
+}
+
+button.btn.btn-scrollUp {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.footer p {
+  margin: 0;
+}

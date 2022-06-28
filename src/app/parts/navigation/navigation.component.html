@@ -1,0 +1,55 @@
+<aside class="aside">
+  <button class="header__aside-toggle" (click)="toggleMenuAside()">
+    <span>
+      <fa-icon [icon]="faBars"></fa-icon>
+    </span>
+  </button>
+  <div class="aside__inner">
+    <div class="aside__logo" style="cursor: pointer;">
+      <!-- <img src="./../../../assets/img/logo.png" alt="Logo">
+      <img src="./../../../assets/img/logo-tiny.png" alt="Logo"> -->
+<h2 class="text-center">Logo</h2>
+    </div>
+    <nav class="aside__nav">
+      <p class="aside__nav-title">Navegação</p>
+      <a [routerLink]="item.url" class="aside__nav-link" title="Dashboard" *ngFor="let item of navegacao">
+        <span class="aside__nav-link-icon">
+          <fa-icon *ngIf="item.icon != undefined" [icon]="item.icon"></fa-icon>
+        </span>
+        <span class="aside__nav-link-text">{{item.title}}</span>
+      </a>
+        <!--
+      <p class="aside__nav-title">Dados</p>
+      <div *ngFor="let item of dados">
+        <a *ngIf="item.subLinks == undefined" class="aside__nav-link" title="{ item.title }" [routerLink]="item.url">
+          <span class="aside__nav-link-icon">
+            <fa-icon *ngIf="item.icon != undefined" [icon]="item.icon"></fa-icon>
+            <img *ngIf="item.image != undefined" src="{ item.image }">
+          </span>
+          <span class="aside__nav-link-text">{{ item.title }}</span>
+        </a>
+        <div *ngIf="item.subLinks != undefined" class="aside__nav-submenu">
+          <button class="aside__nav-link aside__nav-link-submenu-toggle" (click)="toggleSubMenuAside(btnToggle)" #btnToggle>
+            <span class="aside__nav-link-icon">
+              <img *ngIf="item.image != undefined" src="{{item.image}}" />
+              <fa-icon *ngIf="item.icon != undefined" [icon]="item.icon"></fa-icon>
+            </span>
+            <span class="aside__nav-link-text">{{item.title}}</span>
+            <span class="aside__nav-link-icon aside__nav-link-icon-arrow">
+              <fa-icon *ngIf="item.subLinks != undefined" [icon]="faChevronRight"></fa-icon>
+            </span>
+          </button>
+          <div *ngIf="item.subLinks != undefined" class="aside__nav-submenu__links" style="display: none;">
+            <a *ngFor="let subitem of item.subLinks" [routerLink]="subitem.url" class="aside__nav-link" title="{{ item.title }} - {{subitem.title}}">
+              <span class="aside__nav-link-icon">
+                <img *ngIf="subitem.image != undefined" src="{{subitem.image}}" />
+                <fa-icon *ngIf="subitem.icon != undefined" [icon]="subitem.icon"></fa-icon>
+              </span>
+              <span class="aside__nav-link-text">{{subitem.title}}</span>
+            </a>
+          </div>
+        </div>
+      </div> -->
+    </nav>
+  </div>
+</aside>
