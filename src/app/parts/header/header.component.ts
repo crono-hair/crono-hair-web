@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faIdCard, faSignOut } from '@fortawesome/free-solid-svg-icons';
 import * as $ from 'jquery';
 
 @Component({
@@ -9,6 +9,8 @@ import * as $ from 'jquery';
 })
 export class HeaderComponent implements OnInit {
   faBars = faBars;
+  faSignOut = faSignOut;
+  faIdCard = faIdCard;
   userLogadoOpen = false;
   @ViewChild('pesquisarInput') pesquisarInput: any;
 

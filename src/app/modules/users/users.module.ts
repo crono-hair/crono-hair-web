@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { UsersRoutingModule } from './users-routing.module';
+import { UsersRoutingModule } from './users.routing';
 import { ListComponent } from './list/list.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { DeleteComponent } from './delete/delete.component';
-import { FiltroComponent } from './filtro/filtro.component';
+import { FilterComponent } from './filter/filter.component';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { FiltroComponent } from './filtro/filtro.component';
     CreateComponent,
     EditComponent,
     DeleteComponent,
-    FiltroComponent
+    FilterComponent
   ],
   imports: [
     CommonModule,

@@ -23,7 +23,6 @@ export class NavigationComponent implements OnInit {
       { title: 'Clientes', icon: faUsers, url: 'home' },
       { title: 'Funcionários', icon: faBuildingUser, url: 'home' },
       { title: 'Produtos', icon: faIdCard, url: 'home' },
-      { title: 'Meus Dados', icon: faIdCard, url: 'home' },
     ]
     this.dados = [
       {

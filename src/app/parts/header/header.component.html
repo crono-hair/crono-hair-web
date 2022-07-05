@@ -1,22 +1,30 @@
 <header class="header">
-  <div class="header__logo">
-      <!-- <img src="./../../../assets/img/logo-blue.png" alt="Logo ISEED" style="max-width: 100px;width: 90%;"> -->
-      Logo
-  </div>
-  <div class="header__userLogado">
-      <div class="header__userLogado-content" [class.header__userLogado-submenu--open]="userLogadoOpen" (click)="toggleMenuHeader()">
-          <div class="header__userLogado-img" style="background-image: url(./../../../assets/img/user.jpg);">
-          </div>
-          <div class="header__userLogado-text">
-              <p><strong>Noemi C. Almeida</strong></p>
-              <p><small>Usuário logado</small></p>
-          </div>
-      </div>
-      <div class="header__userLogado-submenu" [class.header__userLogado-submenu--open]="userLogadoOpen">
-          <p class="header__userLogado-submenu-link">Welcome</p>
-          <a href="" class="header__userLogado-submenu-link" (click)="sair()">
-              <span style="margin-left: 5px;"><i class="fas fa-sign-out-alt"></i></span> Sair
-          </a>
-      </div>
-  </div>
+    <div class="header__logo">
+        <!-- <img src="./../../../assets/img/logo-blue.png" alt="Logo ISEED" style="max-width: 100px;width: 90%;"> -->
+        Logo
+    </div>
+    <div class="header__userLogado">
+        <div class="header__userLogado-content" [class.header__userLogado-submenu--open]="userLogadoOpen"
+            (click)="toggleMenuHeader()">
+            <div class="header__userLogado-img" style="background-image: url(./../../../assets/img/user.jpg);">
+            </div>
+            <div class="header__userLogado-text">
+                <p><strong>Noemi C. Almeida</strong></p>
+                <p><small>Usuário logado</small></p>
+            </div>
+        </div>
+        <div class="header__userLogado-submenu" [class.header__userLogado-submenu--open]="userLogadoOpen">
+            <p class="header__userLogado-submenu-link">Welcome</p>
+            <a class="header__userLogado-submenu-link">
+                <span style="margin-right: 8px;">
+                    <fa-icon [icon]="faIdCard"></fa-icon>
+                </span> Meus dados
+            </a>
+            <a class="header__userLogado-submenu-link" (click)="sair()">
+                <span style="margin-right: 8px;">
+                    <fa-icon [icon]="faSignOut"></fa-icon>
+                </span> Sair
+            </a>
+        </div>
+    </div>
 </header>

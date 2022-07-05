@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FuncionariosRoutingModule } from './funcionarios-routing.module';
+import { FuncionariosRoutingModule } from './funcionarios.routing';
 import { ListComponent } from './list/list.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { DeleteComponent } from './delete/delete.component';
 import { AgendamentosComponent } from './agendamentos/agendamentos.component';
-import { FiltroComponent } from './filtro/filtro.component';
+import { FilterComponent } from './filter/filter.component';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { FiltroComponent } from './filtro/filtro.component';
     EditComponent,
     DeleteComponent,
     AgendamentosComponent,
-    FiltroComponent
+    FilterComponent
   ],
   imports: [
     CommonModule,
