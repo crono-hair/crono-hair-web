@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faBars, faChevronRight, faHome, faIdCard, faIdCardAlt, faList, faPlus, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBuildingUser, faCalendar, faChevronRight, faHome, faIdCard, faIdCardAlt, faList, faPlus, faUsers, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import * as $ from 'jquery';
 @Component({
   selector: 'app-navigation',
@@ -19,6 +19,10 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
     this.navegacao = [
       { title: 'Dashboard', icon: faHome, url: 'home' },
+      { title: 'Agendamentos', icon: faCalendar, url: 'home' },
+      { title: 'Clientes', icon: faUsers, url: 'home' },
+      { title: 'Funcionários', icon: faBuildingUser, url: 'home' },
+      { title: 'Produtos', icon: faIdCard, url: 'home' },
       { title: 'Meus Dados', icon: faIdCard, url: 'home' },
     ]
     this.dados = [

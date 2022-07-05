@@ -2,10 +2,23 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ClientesRoutingModule } from './clientes-routing.module';
+import { ListComponent } from './list/list.component';
+import { CreateComponent } from './create/create.component';
+import { EditComponent } from './edit/edit.component';
+import { DeleteComponent } from './delete/delete.component';
+import { AgendamentosComponent } from './agendamentos/agendamentos.component';
+import { FiltroComponent } from './filtro/filtro.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ListComponent,
+    CreateComponent,
+    EditComponent,
+    DeleteComponent,
+    AgendamentosComponent,
+    FiltroComponent
+  ],
   imports: [
     CommonModule,
     ClientesRoutingModule
