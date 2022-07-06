@@ -14,7 +14,7 @@ const routes: Routes = [
     { path: 'users', loadChildren: usersModule },
     { path: 'funcionarios', loadChildren: funcionariosModule },
     { path: 'account', loadChildren: accountModule },
-    { path: 'agendamento', loadChildren: agendamentoModule },
+    { path: 'agendamentos', loadChildren: agendamentoModule },
 ];
 
 @NgModule({

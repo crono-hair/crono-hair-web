@@ -7,6 +7,15 @@ import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { DeleteComponent } from './delete/delete.component';
 
+import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin
+]); ////cccccccccccc
+
 
 @NgModule({
   declarations: [
@@ -17,7 +26,8 @@ import { DeleteComponent } from './delete/delete.component';
   ],
   imports: [
     CommonModule,
-    AgendamentoRoutingModule
+    AgendamentoRoutingModule,
+    FullCalendarModule
   ]
 })
 export class AgendamentoModule { }

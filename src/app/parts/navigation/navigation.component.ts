@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faBars, faBuildingUser, faCalendar, faChevronRight, faHome, faIdCard, faIdCardAlt, faList, faPlus, faUsers, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBuildingUser, faCalendar, faChevronRight, faHome, faIdCard, faIdCardAlt, faList, faPlus, faTimes, faUsers, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import * as $ from 'jquery';
 @Component({
   selector: 'app-navigation',
@@ -9,6 +9,7 @@ import * as $ from 'jquery';
 export class NavigationComponent implements OnInit {
   faChevronRight = faChevronRight;
   faBars = faBars;
+  faTimes = faTimes
 
   dados: link[] = [];
   navegacao: link[] = [];
@@ -19,10 +20,11 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
     this.navegacao = [
       { title: 'Dashboard', icon: faHome, url: 'home' },
-      { title: 'Agendamentos', icon: faCalendar, url: 'home' },
-      { title: 'Clientes', icon: faUsers, url: 'home' },
-      { title: 'Funcionários', icon: faBuildingUser, url: 'home' },
-      { title: 'Produtos', icon: faIdCard, url: 'home' },
+      { title: 'Agendamentos', icon: faCalendar, url: 'agendamentos' },
+      { title: 'Clientes', icon: faUsers, url: 'clientes' },
+      { title: 'Funcionários', icon: faBuildingUser, url: 'funcionarios' },
+      { title: 'Produtos', icon: faIdCard, url: 'produtos' },
+      { title: 'Usuários', icon: faIdCard, url: 'users' },
     ]
     this.dados = [
       {
