@@ -1,0 +1,157 @@
+.header {
+  height: 60px;
+  background-color: #fff;
+  box-shadow: 2px 0 9px 0px rgb(0 0 0 / 10%);
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__userLogado {
+  height: 100%;
+  position: relative;
+  display: flex;
+  margin-left: auto;
+}
+
+.header__userLogado-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+  margin-left: auto;
+}
+
+.header__userLogado-content.header__userLogado-submenu--open {
+  background: #f8f8f8;
+  border: 1px #d2d2d2 solid;
+  border-top: none;
+  border-bottom: none;
+}
+
+.header__userLogado-content:hover {
+  background: #f8f8f8;
+}
+
+.header__userLogado-img {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 1px #2f353e solid;
+  cursor: pointer;
+}
+
+.header__userLogado-text p {
+  margin: 0;
+  line-height: 16px;
+  font-size: 14px;
+  font-family: 'Regular';
+}
+
+.header__userLogado-text {
+  margin-left: 15px;
+  color: #6b7077;
+  cursor: pointer;
+}
+
+.header__userLogado-submenu {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  transform: translate(0, -100%);
+  min-width: 100%;
+  background-color: white;
+  border: 1px #d2d2d2 solid;
+  border-top: 0;
+  border-radius: 0 0 3px 3px;
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
+  padding: 10px 0 10px 0;
+  opacity: 0;
+  z-index: 0;
+  visibility: hidden;
+  transition: .3s;
+  background: #ffffff;
+}
+
+.header__userLogado-submenu.header__userLogado-submenu--open {
+  transform: translate(0, 0px);
+  opacity: 1;
+  visibility: visible;
+  transition: .3s;
+  top: 100%;
+}
+
+
+.header__userLogado-submenu-link {
+  padding: 5px 15px;
+  font-size: 12px;
+  font-family: 'Bold';
+  color: #888;
+  text-transform: uppercase;
+}
+
+.header__userLogado-submenu-link:hover {
+  background: #cdcdcd70;
+}
+
+
+.header__search {
+  margin-left: auto;
+  position: relative;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.header__search input {
+  border: 1px #d2d1d1 solid;
+  border-radius: 2px;
+  padding: 4px 55px 4px 12px;
+  width: 100%;
+}
+
+.header__search button {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  color: #555758;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: 'Black';
+}
+
+.header__reload {
+  height: 100%;
+  margin: 0 7px 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__reload-btn {
+  color: #1d2735;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
