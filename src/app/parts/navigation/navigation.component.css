@@ -9,7 +9,7 @@
 
 .aside__inner {
   box-shadow: 2px 0px 5px 0px #2f353e61;
-  background-color: #1d2735;
+  background-color: #4b03ad;
   max-width: 270px;
   z-index: 1;
   height: 0;
@@ -22,7 +22,7 @@
   opacity: 0;
 }
 
-.aside.aside--close .aside__inner {
+.aside.aside--open .aside__inner {
   height: 90vh;
   transition: 1s opacity, .5s, width 1s, height 1s;
   width: 100%;
@@ -39,29 +39,22 @@
 }
 
 .aside__logo {
-  padding: 15px 0;
-  height: 70px;
+  padding: 20px 20px 0px;
+  display: flex;
+  flex-flow: column;
 }
 
-.aside__logo p,
-.aside__logo h2,
-  .aside__logo img {
-  height: 50px;
-  margin: 0 0 0 25px;
-  display: block;
-  width: 60%;
-  max-width: 130px;
-  height: auto;
-  transition: .3s;
-  transition-delay: 0.1s;
+.aside__logo img {
+  opacity: 0.9;
+  width: 95%;
+  max-width: 190px;
 }
-
-.aside__logo img:last-child {
-  height: 0;
-  width: 0;
-  margin: 0;
-  display: block;
-  transition-delay: .3s;
+.aside__logo hr {
+  width: 100%;
+  border-width: 1px;
+  border-top: 0;
+  border-color: #ffffff59;
+  margin: 15px 0 0;
 }
 
 .aside__nav {
@@ -96,7 +89,7 @@
   color: #fff;
 }
 
-.aside.aside--close .aside__nav-link:hover {
+.aside.aside--open .aside__nav-link:hover {
   transition: 0s;
 }
 
@@ -143,7 +136,7 @@
 }
 
 .header__aside-toggle {
-  background-color: #1d2735;
+  background-color: #4b03ad;
   position: fixed;
   width: 35px;
   height: 35px;

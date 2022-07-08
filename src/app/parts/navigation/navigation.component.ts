@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faBars, faBuildingUser, faCalendar, faChevronRight, faHome, faIdCard, faIdCardAlt, faList, faPlus, faTimes, faUsers, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import * as $ from 'jquery';
+import { NavigationBar } from 'src/app/helpers/navigation-bar';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -14,7 +15,9 @@ export class NavigationComponent implements OnInit {
   dados: link[] = [];
   navegacao: link[] = [];
   menuLateralOpen: boolean = false;
-  constructor() {
+  constructor(
+    private navigationBar: NavigationBar,
+  ) {
   }
 
   ngOnInit(): void {
@@ -33,41 +36,20 @@ export class NavigationComponent implements OnInit {
           { title: 'Cadastrar', url: '/inspetor/create', icon: faPlus },
         ]
       }
-    ]
+    ];
+
+    this.navigationBar.open.subscribe(res => this.menuLateralOpen = res);
   }
-
-  toggleSubMenuAside(el: any): void {
-    $(el).parent('.aside__nav-submenu').toggleClass('aside--open')
-    $(el).toggleClass('aside--open')
-    $(el).siblings('.aside__nav-submenu__links').toggleClass('aside--open')
-    $(el).siblings('.aside__nav-submenu__links').slideToggle(300);
-  }
-
-  openSubMenuAside(el: any): void {
-    $(el).addClass('aside--open')
-    $(el).parents('.aside__nav-submenu').addClass('aside--open')
-    $(el).siblings('.aside__nav-submenu__links').addClass('aside--open')
-    $(el).siblings('.aside__nav-submenu__links').slideDown(300);
-  }
-
-
   toggleMenuAside(): void {
-    $('.main').toggleClass('aside--close');
-    $('.aside').toggleClass('aside--close');
-    this.menuLateralOpen = !this.menuLateralOpen;
+    this.navigationBar.toggleMenuAside();
   }
 
   openMenuAside() {
-    $('.main').addClass('aside--close');
-    $('.aside').addClass('aside--close');
-    this.menuLateralOpen = true;
-
+    this.navigationBar.openMenuAside();
   }
+  
   closeMenuAside() {
-    $('.main').removeClass('aside--close');
-    $('.aside').removeClass('aside--close');
-    this.menuLateralOpen = false;
-
+    this.navigationBar.closeMenuAside();
   }
 
 }

@@ -91,7 +91,7 @@ img {
 
 .bg-blue,
 .btn-blue {
-  background-color: #1d2735;
+  background-color: #4b03ad;
   color: #fff;
 }
 
@@ -132,12 +132,12 @@ p-inputmask.ng-dirty.ng-valid .p-inputtext,
 }
 
 button.btn-toggleRowMenu {
-  color: #1d2735;
+  color: #4b03ad;
 }
 
 .tableMenu__menu {
   position: absolute;
-  background-color: #1d2735;
+  background-color: #4b03ad;
   display: flex;
   flex-flow: column;
   padding: 5px 0;
@@ -313,12 +313,12 @@ td.actions-column {
 .actionsList-item {
   padding: 5px 15px;
   display: block;
-  color: #1d2735;
+  color: #4b03ad;
 }
 
 .actionsList-item:hover {
   background-color: #f1f1f1;
-  color: #1d2735;
+  color: #4b03ad;
 }
 
 span.arrowMenu {
@@ -371,10 +371,10 @@ p.error {
 }
 
 .p-datatable .p-datatable-thead>tr.thead>th {
-  background-color: #1d2735;
+  background-color: #4b03ad;
   color: #fff;
   padding: .75rem;
-  border-color: #1d2735;
+  border-color: #4b03ad;
 }
 
 .p-datatable .p-datatable-thead>tr.filters>th {
@@ -392,7 +392,7 @@ p.error {
 .p-datatable .p-datatable-thead>tr.filters>th .p-column-filter-row .p-column-filter-menu-button-active,
 .p-datatable .p-datatable-thead>tr.filters>th .p-column-filter-row .p-column-filter-menu-button:hover,
 .p-datatable .p-datatable-thead>tr.filters>th .p-column-filter-row .p-column-filter-menu-button-active:hover {
-  color: #1d2735;
+  color: #4b03ad;
   -webkit-text-stroke-width: medium;
 }
 
@@ -409,7 +409,7 @@ p.error {
 .p-datatable .p-sortable-column:not(.p-highlight):hover,
 .p-datatable .p-sortable-column.p-highlight:hover,
 .p-datatable .p-sortable-column.p-highlight:hover .p-sortable-column-icon {
-  background-color: #1d2735;
+  background-color: #4b03ad;
   color: #ffffff;
 }
 
@@ -536,7 +536,7 @@ p-inputmask input,
 }
 
 button.btn.btn-addLinha {
-  background-color: #1d2735;
+  background-color: #4b03ad;
   color: #fff;
   font-family: 'Light';
   font-size: 15px;
@@ -644,5 +644,5 @@ span.text-yellow {
   width: auto!important;
   height: auto!important;
   transform: translateY(-103%);
-  color: #1d2735;
+  color: #4b03ad;
 }

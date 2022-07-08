@@ -11,7 +11,7 @@
   box-sizing: border-box;
 }
 
-.main.aside--close {
+.main.aside--open {
   /* width: calc(100vw - 67px); */
   transition: 0.5s;
   transition-delay: 0.2s;

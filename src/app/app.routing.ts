@@ -2,19 +2,22 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 
-const clientesModule = () => import('./modules/clientes/clientes.module').then(x => x.ClientesModule);
-const usersModule = () => import('./modules/users/users.module').then(x => x.UsersModule);
-const funcionariosModule = () => import('./modules/funcionarios/funcionarios.module').then(x => x.FuncionariosModule);
-const accountModule = () => import('./modules/account/account.module').then(x => x.AccountModule);
-const agendamentoModule = () => import('./modules/agendamento/agendamento.module').then(x => x.AgendamentoModule);
+const clientes = () => import('./modules/clientes/clientes.module').then(x => x.ClientesModule);
+const users = () => import('./modules/users/users.module').then(x => x.UsersModule);
+const funcionarios = () => import('./modules/funcionarios/funcionarios.module').then(x => x.FuncionariosModule);
+const account = () => import('./modules/account/account.module').then(x => x.AccountModule);
+const produtos = () => import('./modules/produtos/produtos.module').then(x => x.ProdutosModule);
+const agendamento = () => import('./modules/agendamento/agendamento.module').then(x => x.AgendamentoModule);
 
 
 const routes: Routes = [
-    { path: 'clientes', loadChildren: clientesModule },
-    { path: 'users', loadChildren: usersModule },
-    { path: 'funcionarios', loadChildren: funcionariosModule },
-    { path: 'account', loadChildren: accountModule },
-    { path: 'agendamentos', loadChildren: agendamentoModule },
+  { path: '', redirectTo: 'agendamentos', pathMatch: 'full' },
+  { path: 'clientes', loadChildren: clientes },
+  { path: 'users', loadChildren: users },
+  { path: 'funcionarios', loadChildren: funcionarios },
+  { path: 'account', loadChildren: account },
+  { path: 'agendamentos', loadChildren: agendamento },
+  { path: 'produtos', loadChildren: produtos },
 ];
 
 @NgModule({
