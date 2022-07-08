@@ -72,17 +72,16 @@ button:hover {
   text-decoration: none;
 }
 
-button,
-a {
+button.btn,
+a.btn {
   text-decoration: none;
   color: #fff;
   cursor: pointer;
 }
 
-button {
+button.btn {
   background-color: transparent;
   border: none;
-  color: #fff;
 }
 
 img {

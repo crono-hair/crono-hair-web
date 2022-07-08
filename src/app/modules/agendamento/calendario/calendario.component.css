@@ -1,0 +1,25 @@
+.fc .fc-button-primary {
+    background-color: #4b03ad;
+    border-color: #4b03ad;
+}
+
+.fc .fc-button-primary:hover {
+    background-color: #350376;
+    border-color: #350376;
+}
+
+.fc-scrollgrid-sync-inner {
+    /* background: red; */
+}
+
+.fc-col-header-cell {
+    background: #4b03ad;
+    color: #fff;
+    border: none!important;
+    padding: 5px 5px!important;
+}
+
+.fc table {
+    border-collapse: collapse;
+    border-color: transparent;
+}
