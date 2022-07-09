@@ -9,7 +9,7 @@
 
 .aside__inner {
   box-shadow: 2px 0px 5px 0px #2f353e61;
-  background-color: #4b03ad;
+  background-color: var(--grey);
   max-width: 270px;
   z-index: 1;
   height: 0;
@@ -136,7 +136,7 @@
 }
 
 .header__aside-toggle {
-  background-color: #4b03ad;
+  background-color: var(--grey);
   position: fixed;
   width: 35px;
   height: 35px;

@@ -8,3 +8,9 @@ export class Cliente {
     salao_Id: number = 0;
     salao: Salao = new Salao;
 }
+
+export class ClienteFiltro {
+    id?: number = 0;
+    pessoa_Id?: number = 0;
+    salao_Id?: number = 0;
+}

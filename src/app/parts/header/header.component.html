@@ -1,15 +1,21 @@
 <header class="header">
+    <button class="btn header__aside-toggle" (click)="toggleMenuAside()">
+        <span>
+          <fa-icon [icon]="faBars"   *ngIf="!this.menuLateralOpen"></fa-icon>
+          <fa-icon [icon]="faTimes" *ngIf="this.menuLateralOpen"></fa-icon>
+        </span>
+      </button>
     <div class="header__logo">
         <img src="./../../../assets/img/logo.png" alt="Logo Crono Hair">
     </div>
     <div class="header__userLogado">
         <div class="header__userLogado-content" [class.header__userLogado-submenu--open]="userLogadoOpen"
             (click)="toggleMenuHeader()">
-            <div class="header__userLogado-img" style="background-image: url(./../../../assets/img/user.jpg);">
+            <div class="header__userLogado-img" style="background-image: url(./../../../assets/img/user.png);">
             </div>
             <div class="header__userLogado-text">
                 <p><strong>Noemi C. Almeida</strong></p>
-                <p><small>Usuário logado</small></p>
+                <p><small>Salon De La Belle</small></p>
             </div>
         </div>
         <div class="header__userLogado-submenu" [class.header__userLogado-submenu--open]="userLogadoOpen">

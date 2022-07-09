@@ -1,12 +1,1 @@
-<div class="d-flex">
-  <main class="main" [class.aside--open]="menuLateralOpen">
-      <app-navigation style="z-index: 3; position: static;"></app-navigation>
-      <app-header style="position: sticky;top: 0; z-index: 2;"></app-header>
-      <div class="main-content">
-          <div class="container">
-              <router-outlet></router-outlet>
-          </div>
-      </div>
-      <app-footer></app-footer>
-  </main>
-</div>
+<router-outlet></router-outlet>

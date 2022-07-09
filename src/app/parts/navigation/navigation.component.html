@@ -1,10 +1,5 @@
 <aside class="aside" [class.aside--open]="menuLateralOpen">
-  <button class="btn header__aside-toggle" (click)="toggleMenuAside()">
-    <span>
-      <fa-icon [icon]="faBars"   *ngIf="!this.menuLateralOpen"></fa-icon>
-      <fa-icon [icon]="faTimes" *ngIf="this.menuLateralOpen"></fa-icon>
-    </span>
-  </button>
+
   <div class="aside__inner">
     <div class="aside__logo" style="cursor: pointer;">
       <img src="./../../../assets/img/logo-white.png" alt="Logo">

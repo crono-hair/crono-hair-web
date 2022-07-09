@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { InitialComponent } from './parts/initial/initial.component';
 
 
 const clientes = () => import('./modules/clientes/clientes.module').then(x => x.ClientesModule);
@@ -11,13 +12,18 @@ const agendamento = () => import('./modules/agendamento/agendamento.module').the
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'agendamentos', pathMatch: 'full' },
-  { path: 'clientes', loadChildren: clientes },
-  { path: 'users', loadChildren: users },
-  { path: 'funcionarios', loadChildren: funcionarios },
+  {
+    path: '', component: InitialComponent, children: [
+      { path: '', redirectTo: 'agendamentos', pathMatch: 'full' },
+      { path: 'clientes', loadChildren: clientes },
+      { path: 'users', loadChildren: users },
+      { path: 'funcionarios', loadChildren: funcionarios },
+      { path: 'agendamentos', loadChildren: agendamento },
+      { path: 'produtos', loadChildren: produtos },
+    ]
+  },
+
   { path: 'account', loadChildren: account },
-  { path: 'agendamentos', loadChildren: agendamento },
-  { path: 'produtos', loadChildren: produtos },
 ];
 
 @NgModule({

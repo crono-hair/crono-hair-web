@@ -1,8 +1,7 @@
 .footer {
   padding: 5px;
   text-align: center;
-  background: #4b03ad;
-  color: #ffffff;
+  background: var(--grey);
   box-shadow: 2px 0px 11px 2px #00000047;
 }
 
@@ -14,4 +13,5 @@ button.btn.btn-scrollUp {
 
 .footer p {
   margin: 0;
+  color: #ffffff;
 }

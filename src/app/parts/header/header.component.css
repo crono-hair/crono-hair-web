@@ -154,7 +154,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 45px;
+  margin-left: calc(3vw + 15px);
   width: auto;
   height: 60%;
 }
@@ -163,4 +163,28 @@
   height: 100%;
   width: auto;
   max-width: initial;
+}
+
+.header__aside-toggle {
+  background-color: var(--grey);
+  position: fixed;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  transition: .3s;
+  top: 2vh;
+  left: 3vh;
+  color: #fff;
+}
+
+.header__aside-toggle span {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header__aside-toggle:hover {
+  transform: scale(1.05);
+  transition: .3s;
 }

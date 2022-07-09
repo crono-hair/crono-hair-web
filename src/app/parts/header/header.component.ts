@@ -1,6 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { faBars, faIdCard, faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
+import { faBars, faIdCard, faSignOut, faTimes } from '@fortawesome/free-solid-svg-icons';
 import * as $ from 'jquery';
+import { NavigationBar } from 'src/app/helpers/navigation-bar';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-header',
@@ -9,13 +12,19 @@ import * as $ from 'jquery';
 })
 export class HeaderComponent implements OnInit {
   faBars = faBars;
+  faTimes = faTimes;
   faSignOut = faSignOut;
   faIdCard = faIdCard;
   userLogadoOpen = false;
-  @ViewChild('pesquisarInput') pesquisarInput: any;
+  menuLateralOpen: boolean = false;
 
   constructor(
-  ) { }
+    private router: Router,
+    private accountService: AccountService,
+    private navigationBar: NavigationBar
+  ) {
+    this.navigationBar.open.subscribe(res => this.menuLateralOpen = res);
+   }
 
   ngOnInit(): void {
   }
@@ -25,6 +34,17 @@ export class HeaderComponent implements OnInit {
     // $('.header__userLogado-submenu').toggleClass('');
   }
   sair() {
+    this.accountService.logout();
+  }
+  toggleMenuAside(): void {
+    this.navigationBar.toggleMenuAside();
   }
 
+  openMenuAside() {
+    this.navigationBar.openMenuAside();
+  }
+  
+  closeMenuAside() {
+    this.navigationBar.closeMenuAside();
+  }
 }

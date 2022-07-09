@@ -1,3 +1,28 @@
+<!-- <div class="d-flex">
+    <main class="main" [class.aside--open]="menuLateralOpen">
+        <app-navigation style="z-index: 3; position: static;"></app-navigation>
+        <app-header style="position: sticky;top: 0; z-index: 2;"></app-header>
+        <div class="main-content">
+            <router-outlet></router-outlet>
+        </div>
+        <app-footer></app-footer>
+    </main>
+  </div>
+   -->
 <app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<app-navigation style="z-index: 3; position: relative;"></app-navigation>
+<div style="position: relative;" class="theme">
+    <main class="main">
+        <div class="main__bg" style="background-image: url(./../../../assets/img/logo.png);"></div>
+        <!-- <div class="loading" *ngIf="loading">
+      <span class="spinner-border spinner-border-sm mr-1"></span>
+    </div> -->
+        <div class="main__body">
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+    <app-footer></app-footer>
+    <div style="z-index: 2; position: relative;">
+        <!-- <app-alert></app-alert> -->
+    </div>
+</div>

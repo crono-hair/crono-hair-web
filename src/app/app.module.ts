@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app.routing';
@@ -12,6 +12,15 @@ import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { CurrencyPipe, DatePipe, registerLocaleData } from '@angular/common';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt);
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   declarations: [
@@ -28,9 +37,23 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot(
+			{
+				preventDuplicates: true,
+				timeOut: 8000
+			}),
+    NgxMaskModule.forRoot(maskConfig),
   ],
-  providers: [],
+  providers: [
+    DatePipe,
+    CurrencyPipe,
+    {provide: LOCALE_ID, useValue: 'pt-BR'},
+    // {provide: LOCALE_ID, useValue: 'en-US'},
+    {
+        provide:  DEFAULT_CURRENCY_CODE,
+        useValue: 'BRL'
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

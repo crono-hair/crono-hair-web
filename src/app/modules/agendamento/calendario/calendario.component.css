@@ -1,6 +1,6 @@
 .fc .fc-button-primary {
-    background-color: #4b03ad;
-    border-color: #4b03ad;
+    background-color: var(--grey);
+    border-color: var(--grey);
 }
 
 .fc .fc-button-primary:hover {
@@ -13,7 +13,7 @@
 }
 
 .fc-col-header-cell {
-    background: #4b03ad;
+    background: var(--grey);
     color: #fff;
     border: none!important;
     padding: 5px 5px!important;

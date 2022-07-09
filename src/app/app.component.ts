@@ -6,15 +6,7 @@ import { NavigationBar } from './helpers/navigation-bar';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit {
-  menuLateralOpen = false;
-  constructor(
-    private navigationBar: NavigationBar,
-  ) {
-    this.navigationBar.open.subscribe(res => this.menuLateralOpen = res);
-  }
+export class AppComponent {
 
-  ngAfterViewInit(): void {
-    this.navigationBar.clickOut();
-  }
+
 }
