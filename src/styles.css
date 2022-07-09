@@ -62,9 +62,10 @@ label:not(form label), h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 0;
 }
 
-hr {
-	margin-top: 5px;
-	margin-bottom: 5px;
+hr, hr:not([size]) {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 0;
 }
 
 .main {

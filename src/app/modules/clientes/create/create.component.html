@@ -1,1 +1,88 @@
-<p>create works!</p>
+<div class="modal" [class.active]="modalOpen">
+	<div class="modal__bg" (click)="voltar()"></div>
+	<div class="modal__inner" style="max-width: 1100px;">
+		<div class="modal__content">
+			<div class="modal__header">
+				<h3 class="text-orange">Adicionar cliente</h3>
+				<a (click)="voltar()" class="modal__header-close btn-close">
+					<span></span>
+					<span></span>
+				</a>
+			</div>
+			<div class="modal__body">
+				<form #form="ngForm" (ngSubmit)="create(form)">
+					<div class="form-row">
+                        <div class="form-group col-lg-6 col-md-12 col-sm-12 col-12">
+                            <label for="nome">Nome: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="nome" name="nome" #nome="ngModel" [(ngModel)]="objeto.pessoa.nome" required>
+                        </div>
+                        <div class="form-group col-lg-2 col-md-4 col-sm-12 col-12">
+                            <label for="cpf">CPF: <span class="text-danger">*</span></label>
+                            <input type="text" mask="000.000.000-00" placeholder="000.000.000-00" class="form-control" id="cpf" name="cpf" #cpf="ngModel" [(ngModel)]="objeto.pessoa.cpf" required>
+                        </div>
+					</div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-3 col-md-3 col-sm-12 col-12">
+                            <label for="telefone">Telefone:</label>
+                            <input type="text" mask="(00) 0000-0000" placeholder="(00) 0000-0000" class="form-control" id="telefone" name="telefone" #telefone="ngModel" [(ngModel)]="objeto.pessoa.contato.telefone">
+                        </div>
+                        <div class="form-group col-lg-3 col-md-3 col-sm-12 col-12">
+                            <label for="celular">Celular: <span class="text-danger">*</span></label>
+                            <input type="text" mask="(00) 0.0000-0000" placeholder="(00) 0.0000-0000" class="form-control" id="celular" name="celular" #celular="ngModel" [(ngModel)]="objeto.pessoa.contato.celular" required>
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12 col-12">
+                            <label for="email">E-mail: <span class="text-danger">*</span></label>
+                            <input type="email" placeholder="example@hotmail.com" class="form-control" id="email" name="email" #email="ngModel" [(ngModel)]="objeto.pessoa.contato.email" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <p class="font-weight-bold">Endereço</p>
+                        <hr>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-2 col-md-3 col-sm-12 col-12">
+                            <label for="cep">CEP: <span class="text-danger">*</span></label>
+                            <input type="text" mask="00000-000" placeholder="00000-000" class="form-control" id="cep" name="cep" #cep="ngModel" [(ngModel)]="objeto.pessoa.endereco.cep" (focusout)="getEndereco()" required>
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12 col-12">
+                            <label for="logradouro">Endereço: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="logradouro" name="logradouro" #logradouro="ngModel" [(ngModel)]="objeto.pessoa.endereco.logradouro" required [disabled]="loading">
+                        </div>
+                        <div class="form-group col-lg-1 col-md-1 col-sm-12 col-12">
+                            <label for="numero">Nº: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="numero" name="numero" #numero="ngModel" [(ngModel)]="objeto.pessoa.endereco.numero" required [disabled]="loading">
+                        </div>
+                        <div class="form-group col-lg-3 col-md-3 col-sm-12 col-12">
+                            <label for="bairro">Bairro: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="bairro" name="bairro" #bairro="ngModel" [(ngModel)]="objeto.pessoa.endereco.bairro" required [disabled]="loading">
+                        </div>
+                        <div class="form-group col-lg-4 col-md-4 col-sm-12 col-12">
+                            <label for="cidade">Cidade: <span class="text-danger">*</span></label>
+                            <select class="form-control" id="cidade" name="cidade" #cidade="ngModel" [(ngModel)]="objeto.pessoa.endereco.cidade" required [disabled]="loading"> 
+                                <option [ngValue]="''">Selecione</option>
+                                <option [ngValue]="item.nome" *ngFor="let item of cidades">{{ item.nome }}</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-2 col-md-3 col-sm-12 col-12">
+                            <label for="uf">UF: <span class="text-danger">*</span></label>
+                            <select class="form-control" id="uf" name="uf" #uf="ngModel" [(ngModel)]="objeto.pessoa.endereco.uf" required [disabled]="loading"> 
+                                <option [ngValue]="''">Selecione</option>
+                                <option [ngValue]="item.sigla" *ngFor="let item of estados">{{ item.sigla }}</option>
+                            </select>
+                        </div>
+                    </div>
+					<div class="d-flex justify-content-between col-lg-12 flex-wrap p-0">
+						<ul *ngIf="erro">
+							<li class="text-red" *ngFor="let err of erro">{{err}}</li>
+						</ul>
+						<div class="d-flex col-sm-12 ml-auto mt-3 px-0">
+							<button type="submit" class="btn btn-primary ml-auto mr-0"
+									  [disabled]="form.invalid || loading">
+								<span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Salvar </button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

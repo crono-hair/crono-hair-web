@@ -9,10 +9,10 @@ import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
   { path: '', component: ListComponent, children: [
-    { path: 'create', component: CreateComponent },
+    { path: 'cadastrar', component: CreateComponent },
     { path: 'filtro', component: FilterComponent },
-    { path: 'edit/:id', component: EditComponent },
-    { path: 'delete/:id', component: DeleteComponent },
+    { path: 'editar/:id', component: EditComponent },
+    { path: 'excluir/:id', component: DeleteComponent },
     { path: 'agendamentos/:id', component: AgendamentosComponent },
   ] },
 ];

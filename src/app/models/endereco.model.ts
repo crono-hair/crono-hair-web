@@ -1,7 +1,7 @@
 export class Endereco {
     id: number = 0;
-    logradouroTipo: string = '';
     logradouro: string = '';
+    numero: string = '';
     bairro: string = '';
     cidade: string = '';
     uf: string = '';
