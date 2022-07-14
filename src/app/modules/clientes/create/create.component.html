@@ -10,29 +10,110 @@
 				</a>
 			</div>
 			<div class="modal__body">
-				<form #form="ngForm" (ngSubmit)="create(form)">
+				<form #form="ngForm" (ngSubmit)="send(form)">
 					<div class="form-row">
-                        <div class="form-group col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div class="form-group col-lg-5 col-md-4 col-sm-12 col-12">
                             <label for="nome">Nome: <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="nome" name="nome" #nome="ngModel" [(ngModel)]="objeto.pessoa.nome" required>
+                            <input type="text" 
+                                    class="form-control" 
+                                    id="nome" 
+                                    name="nome"
+                                    #nome="ngModel" 
+                                    [(ngModel)]="objeto.nome" 
+                                    required>
+                            <div *ngIf="nome.touched && nome.errors">
+                                <p class="text-danger" *ngIf="nome.errors['required']">Esse campo é obrigatório</p>
+                            </div>
                         </div>
-                        <div class="form-group col-lg-2 col-md-4 col-sm-12 col-12">
-                            <label for="cpf">CPF: <span class="text-danger">*</span></label>
-                            <input type="text" mask="000.000.000-00" placeholder="000.000.000-00" class="form-control" id="cpf" name="cpf" #cpf="ngModel" [(ngModel)]="objeto.pessoa.cpf" required>
+                        <div class="form-group col-lg-2 col-md-3 col-sm-12 col-12">
+                            <label for="cpf">CPF:</label>
+                            <input type="text" 
+                                mask="000.000.000-00" 
+                                placeholder="000.000.000-00" 
+                                class="form-control" 
+                                id="cpf" 
+                                name="cpf" 
+                                #cpf="ngModel" 
+                                [(ngModel)]="objeto.cpf">
+                            <div *ngIf="cpf.touched && cpf.errors">
+                                <p class="text-danger" *ngIf="cpf.errors['mask']">CPF inválido</p>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-3 col-md-3 col-sm-12 col-12">
+                            <label for="sexo">Sexo: <span class="text-danger">*</span></label>
+                            <select class="form-control" 
+                                    id="sexo" 
+                                    name="sexo"
+                                    #sexo="ngModel" 
+                                    [(ngModel)]="objeto.sexo" 
+                                    required>
+                                <option value="Não informado">Não informado</option>
+                                <option value="Feminino">Feminino</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                            <div *ngIf="sexo.touched && sexo.errors">
+                                <p class="text-danger" *ngIf="sexo.errors['required']">Esse campo é obrigatório</p>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-2 col-md-3 col-sm-12 col-12">
+                            <label for="dataNascimento">Data de Nascimento: <span class="text-danger">*</span></label>
+                            <input type="date" 
+                                class="form-control" 
+                                id="dataNascimento" 
+                                name="dataNascimento" 
+                                #dataNascimento="ngModel" 
+                                [(ngModel)]="objeto.dataNascimento">
+                            <div *ngIf="dataNascimento.touched && dataNascimento.errors">
+                                <p class="text-danger" *ngIf="dataNascimento.errors['required']">Esse campo é obrigatório</p>
+                            </div>
                         </div>
 					</div>
                     <div class="form-row">
                         <div class="form-group col-lg-3 col-md-3 col-sm-12 col-12">
-                            <label for="telefone">Telefone:</label>
-                            <input type="text" mask="(00) 0000-0000" placeholder="(00) 0000-0000" class="form-control" id="telefone" name="telefone" #telefone="ngModel" [(ngModel)]="objeto.pessoa.contato.telefone">
+                            <label for="celular">Celular: <span class="text-danger">*</span></label>
+                            <input type="text" 
+                                mask="(00) 0.0000-0000" 
+                                placeholder="(00) 0.0000-0000" 
+                                class="form-control" 
+                                id="celular" 
+                                name="celular" 
+                                #celular="ngModel" 
+                                [(ngModel)]="objeto.celular" 
+                                required>
+                            <div *ngIf="celular.touched && celular.errors">
+                                <p class="text-danger" *ngIf="celular.errors['required']">Esse campo é obrigatório</p>
+                                <p class="text-danger" *ngIf="celular.errors['mask']">Celular inválido</p>
+                            </div>
                         </div>
                         <div class="form-group col-lg-3 col-md-3 col-sm-12 col-12">
-                            <label for="celular">Celular: <span class="text-danger">*</span></label>
-                            <input type="text" mask="(00) 0.0000-0000" placeholder="(00) 0.0000-0000" class="form-control" id="celular" name="celular" #celular="ngModel" [(ngModel)]="objeto.pessoa.contato.celular" required>
+                            <label for="telefone">Telefone:</label>
+                            <input type="text" 
+                                mask="(00) 0000-0000" 
+                                placeholder="(00) 0000-0000" 
+                                class="form-control" 
+                                id="telefone" 
+                                name="telefone" 
+                                #telefone="ngModel" 
+                                [(ngModel)]="objeto.telefone">
+                            <div *ngIf="telefone.touched && telefone.errors">
+                                <p class="text-danger" *ngIf="telefone.errors['mask']">Telefone inválido</p>
+                            </div>
                         </div>
                         <div class="form-group col-lg-6 col-md-6 col-sm-12 col-12">
                             <label for="email">E-mail: <span class="text-danger">*</span></label>
-                            <input type="email" placeholder="example@hotmail.com" class="form-control" id="email" name="email" #email="ngModel" [(ngModel)]="objeto.pessoa.contato.email" required>
+                            <input type="email" 
+                                    placeholder="example@hotmail.com" 
+                                    class="form-control" 
+                                    id="email" 
+                                    name="email" 
+                                    #email="ngModel" 
+                                    [(ngModel)]="objeto.email" 
+                                    required>
+                            <div *ngIf="email.touched && email.errors">
+                                <p class="text-danger" *ngIf="email.errors['required']">Esse campo é obrigatório</p>
+                                <p class="text-danger" *ngIf="email.errors['email']">E-mail inválido</p>
+                            </div>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -41,34 +122,100 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-lg-2 col-md-3 col-sm-12 col-12">
-                            <label for="cep">CEP: <span class="text-danger">*</span></label>
-                            <input type="text" mask="00000-000" placeholder="00000-000" class="form-control" id="cep" name="cep" #cep="ngModel" [(ngModel)]="objeto.pessoa.endereco.cep" (focusout)="getEndereco()" required>
+                            <label for="cep">CEP: </label>
+                            <input type="text" 
+                                mask="00000-000" 
+                                placeholder="00000-000" 
+                                class="form-control" 
+                                id="cep" 
+                                name="cep" 
+                                #cep="ngModel" 
+                                [(ngModel)]="objeto.cep" 
+                                (focusout)="getEndereco()"
+                                [required]="isRequiredEndereco()">
+                            <div *ngIf="cep.touched && cep.errors">
+                                <p class="text-danger" *ngIf="cep.errors['required']">Esse campo é obrigatório</p>
+                                <p class="text-danger" *ngIf="cep.errors['mask']">CEP inválido</p>
+                            </div>
                         </div>
                         <div class="form-group col-lg-6 col-md-6 col-sm-12 col-12">
-                            <label for="logradouro">Endereço: <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="logradouro" name="logradouro" #logradouro="ngModel" [(ngModel)]="objeto.pessoa.endereco.logradouro" required [disabled]="loading">
+                            <label for="logradouro">Endereço:</label>
+                            <input type="text" 
+                                class="form-control" 
+                                id="logradouro" 
+                                name="logradouro" 
+                                #logradouro="ngModel" 
+                                [(ngModel)]="objeto.logradouro" 
+                                required
+                                [disabled]="loading"
+                                [required]="isRequiredEndereco()">
+                            <div *ngIf="logradouro.touched && logradouro.errors">
+                                <p class="text-danger" *ngIf="logradouro.errors['required']">Esse campo é obrigatório</p>
+                            </div>
                         </div>
                         <div class="form-group col-lg-1 col-md-1 col-sm-12 col-12">
-                            <label for="numero">Nº: <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="numero" name="numero" #numero="ngModel" [(ngModel)]="objeto.pessoa.endereco.numero" required [disabled]="loading">
+                            <label for="numero">Nº:</label>
+                            <input type="text" 
+                                class="form-control" 
+                                id="numero" 
+                                name="numero" 
+                                #numero="ngModel" 
+                                [(ngModel)]="objeto.numero" 
+                                required
+                                [disabled]="loading"
+                                [required]="isRequiredEndereco()">
+                            <div *ngIf="numero.touched && numero.errors">
+                                <p class="text-danger" *ngIf="numero.errors['required']">Esse campo é obrigatório</p>
+                            </div>
                         </div>
                         <div class="form-group col-lg-3 col-md-3 col-sm-12 col-12">
-                            <label for="bairro">Bairro: <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="bairro" name="bairro" #bairro="ngModel" [(ngModel)]="objeto.pessoa.endereco.bairro" required [disabled]="loading">
+                            <label for="bairro">Bairro:</label>
+                            <input type="text" 
+                                class="form-control" 
+                                id="bairro" 
+                                name="bairro" 
+                                #bairro="ngModel" 
+                                [(ngModel)]="objeto.bairro" 
+                                required
+                                [disabled]="loading"
+                                [required]="isRequiredEndereco()">
+                            <div *ngIf="bairro.touched && bairro.errors">
+                                <p class="text-danger" *ngIf="bairro.errors['required']">Esse campo é obrigatório</p>
+                            </div>
                         </div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-12 col-12">
-                            <label for="cidade">Cidade: <span class="text-danger">*</span></label>
-                            <select class="form-control" id="cidade" name="cidade" #cidade="ngModel" [(ngModel)]="objeto.pessoa.endereco.cidade" required [disabled]="loading"> 
+                            <label for="cidade">Cidade:</label>
+                            <select 
+                                class="form-control" 
+                                id="cidade" 
+                                name="cidade" 
+                                #cidade="ngModel" 
+                                [(ngModel)]="objeto.cidade" 
+                                [required]="isRequiredEndereco()"
+                                [disabled]="loading"> 
                                 <option [ngValue]="''">Selecione</option>
                                 <option [ngValue]="item.nome" *ngFor="let item of cidades">{{ item.nome }}</option>
                             </select>
+                            <div *ngIf="cidade.touched && cidade.errors">
+                                <p class="text-danger" *ngIf="cidade.errors['required']">Esse campo é obrigatório</p>
+                            </div>
                         </div>
                         <div class="form-group col-lg-2 col-md-3 col-sm-12 col-12">
-                            <label for="uf">UF: <span class="text-danger">*</span></label>
-                            <select class="form-control" id="uf" name="uf" #uf="ngModel" [(ngModel)]="objeto.pessoa.endereco.uf" required [disabled]="loading"> 
+                            <label for="uf">UF:</label>
+                            <select 
+                                class="form-control" 
+                                id="uf" 
+                                name="uf" 
+                                #uf="ngModel" 
+                                [(ngModel)]="objeto.uf" 
+                                [required]="isRequiredEndereco()"
+                                [disabled]="loading"> 
                                 <option [ngValue]="''">Selecione</option>
                                 <option [ngValue]="item.sigla" *ngFor="let item of estados">{{ item.sigla }}</option>
                             </select>
+                            <div *ngIf="uf.touched && uf.errors">
+                                <p class="text-danger" *ngIf="uf.errors['required']">Esse campo é obrigatório</p>
+                            </div>
                         </div>
                     </div>
 					<div class="d-flex justify-content-between col-lg-12 flex-wrap p-0">

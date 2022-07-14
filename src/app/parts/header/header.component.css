@@ -56,7 +56,7 @@
   margin: 0;
   line-height: 16px;
   font-size: 14px;
-  font-family: 'Regular';
+  font-family: Regular;
 }
 
 .header__userLogado-text {
@@ -95,15 +95,21 @@
 }
 
 
+p.header__userLogado-submenu-link {
+  font-weight: bold;
+
+}
+
 .header__userLogado-submenu-link {
   padding: 5px 15px;
   font-size: 12px;
-  font-family: 'Bold';
+  font-family: Rubik-Regular;
   color: #888;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
-.header__userLogado-submenu-link:hover {
+.header__userLogado-submenu-link:not(p):hover {
   background: #cdcdcd70;
 }
 
@@ -132,7 +138,8 @@
   color: #555758;
   text-transform: uppercase;
   font-size: 12px;
-  font-family: 'Black';
+  font-family: Rubik-Regular;
+  font-weight: bold;
 }
 
 .header__reload {

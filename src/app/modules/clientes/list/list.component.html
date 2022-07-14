@@ -58,7 +58,9 @@
 				</ng-template>
 				<ng-template pTemplate="header" let-columns>
 					<tr>
-						<th></th>
+						<th>
+							<p-tableHeaderCheckbox *ngIf="list.length > 0"></p-tableHeaderCheckbox>
+						</th>
 						<th [pSortableColumn]="item.field"
 							 [attr.data-name]="'filterMenu_' + item.field"
 							 *ngFor="let item of cols">
@@ -75,8 +77,14 @@
 								 let-rowIndex="rowIndex">
 					<tr [class.selected]="item == selected"
 						 [class.selected-many]="selectedItems.includes(item)">
-						<td></td>
-						<td [pSelectableRow]="item" [pSelectableRowIndex]="rowIndex"> {{ item.id }} </td>
+						 <td>
+							<p-tableCheckbox [value]="item"></p-tableCheckbox>
+						</td>
+						<td [pSelectableRow]="item" [pSelectableRowIndex]="rowIndex"> {{ item.nome }} </td>
+						<td [pSelectableRow]="item" [pSelectableRowIndex]="rowIndex"> {{ item.cpf | mask : '000.000.000-00' }} </td>
+						<td [pSelectableRow]="item" [pSelectableRowIndex]="rowIndex"> {{ item.sexo }} </td>
+						<td [pSelectableRow]="item" [pSelectableRowIndex]="rowIndex"> {{ item.celular | mask : '(00) 0.0000-0000' }} </td>
+						<td [pSelectableRow]="item" [pSelectableRowIndex]="rowIndex"> {{ item.email }} </td>
 						
                         <td class="td-actions">
 							<div class="actions">

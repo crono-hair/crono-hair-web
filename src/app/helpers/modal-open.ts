@@ -16,6 +16,7 @@ export class ModalOpen {
         }
         return this.openSubject;
     }
+    
     setOpen(value: boolean) {
         this.openSubject.next(value);
         localStorage.setItem('modal', value.toString())

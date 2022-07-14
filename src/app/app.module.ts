@@ -15,11 +15,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { CurrencyPipe, DatePipe, registerLocaleData } from '@angular/common';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import localePt from '@angular/common/locales/pt';
+import { AlertComponent } from './parts/alert/alert.component';
 
 registerLocaleData(localePt);
 
 const maskConfig: Partial<IConfig> = {
-  validation: false,
+  validation: true,
 };
 
 @NgModule({
@@ -28,7 +29,8 @@ const maskConfig: Partial<IConfig> = {
     HeaderComponent,
     FooterComponent,
     InitialComponent,
-    NavigationComponent
+    NavigationComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

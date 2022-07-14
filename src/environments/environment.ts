@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: '' // Url da API
+  url: 'http://localhost:4110' // Url da API
 };
 
 // Esse arquivo é substituido por environments.prod.ts ao rodar ng build (compilação para publicar o projeto)

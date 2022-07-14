@@ -14,7 +14,7 @@ const agendamento = () => import('./modules/agendamento/agendamento.module').the
 const routes: Routes = [
   {
     path: '', component: InitialComponent, children: [
-      { path: '', redirectTo: 'agendamentos', pathMatch: 'full' },
+      { path: '', redirectTo: 'agendamentos', pathMatch: 'prefix' },
       { path: 'clientes', loadChildren: clientes },
       { path: 'users', loadChildren: users },
       { path: 'funcionarios', loadChildren: funcionarios },

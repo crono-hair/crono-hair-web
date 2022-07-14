@@ -24,15 +24,16 @@ export class HeaderComponent implements OnInit {
     private navigationBar: NavigationBar
   ) {
     this.navigationBar.open.subscribe(res => this.menuLateralOpen = res);
+    this.navigationBar.menuHeaderOpen.subscribe(res => this.userLogadoOpen = res);
    }
 
   ngOnInit(): void {
   }
 
   toggleMenuHeader(): void {
-    this.userLogadoOpen = !this.userLogadoOpen;
-    // $('.header__userLogado-submenu').toggleClass('');
+    this.navigationBar.toggleMenuHeader();
   }
+
   sair() {
     this.accountService.logout();
   }
