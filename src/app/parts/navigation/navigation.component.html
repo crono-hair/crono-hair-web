@@ -13,7 +13,7 @@
         </span>
         <span class="aside__nav-link-text">{{item.title}}</span>
       </a>
-      <!--
+      
       <p class="aside__nav-title">Dados</p>
       <div *ngFor="let item of dados">
         <a *ngIf="item.subLinks == undefined" class="aside__nav-link" title="{ item.title }" [routerLink]="item.url">
@@ -23,7 +23,7 @@
           </span>
           <span class="aside__nav-link-text">{{ item.title }}</span>
         </a>
-        <div *ngIf="item.subLinks != undefined" class="aside__nav-submenu">
+        <!-- <div *ngIf="item.subLinks != undefined" class="aside__nav-submenu">
           <button class="aside__nav-link aside__nav-link-submenu-toggle" (click)="toggleSubMenuAside(btnToggle)" #btnToggle>
             <span class="aside__nav-link-icon">
               <img *ngIf="item.image != undefined" src="{{item.image}}" />
@@ -43,8 +43,8 @@
               <span class="aside__nav-link-text">{{subitem.title}}</span>
             </a>
           </div>
-        </div>
-      </div> -->
+        </div> -->
+      </div>
     </nav>
   </div>
 </aside>

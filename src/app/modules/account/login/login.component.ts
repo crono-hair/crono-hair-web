@@ -1,25 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./../account.component.css']
 })
 export class LoginComponent implements OnInit {
 
-  email: string = '';
-  password: string = '';
+
+  login = {
+    email: '',
+    password: '',
+  };
+  
   constructor(
-    private accountService: AccountService
-  ) { }
+    private accountService: AccountService,
+    private router: Router
+  ) { 
+    this.accountService.isLoggedIn.subscribe(res => {
+      console.log(res)
+      if (res == true) {
+        this.router.navigate([''])
+      }
+    })
+  }
 
   ngOnInit(): void {
+
   }
 
-  login() {
-    this.accountService.login(this.email, this.password);
+  logar(form: NgForm) {
+    this.accountService.login(this.login.email, this.login.password);
   }
-
 
 }

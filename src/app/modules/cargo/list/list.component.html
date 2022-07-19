@@ -1,0 +1,122 @@
+<section class="page">
+	<header class="page__header">
+		<p class="page__header-voltar">
+			<a routerLink="/">
+				<span style="margin-right: 8px;">
+					<fa-icon [icon]="faChevronLeft"></fa-icon>
+				</span>
+				<strong>Voltar</strong>
+			</a>
+		</p>
+		<h3><strong>Clientes</strong></h3>
+		<div class="mt-3 d-flex flex-wrap align-items-start" style="height: 37px;">
+			<a class="btn btn-dark mr-1 mb-1" [routerLink]="['cadastrar']">Cadastrar</a>
+			<a class="btn btn-filter ml-auto" [routerLink]="['filtro']">
+				<fa-icon [icon]="faFilter"></fa-icon>
+			</a>
+		</div>
+	</header>
+	<div class="page__body pt-0">
+		<div class="">
+			<p-table class="table"
+						#dt
+						[columns]="cols"
+						[value]="list"
+						[paginator]="list.length > 0"
+						[rows]="10"
+						[rowHover]="true"
+						[rowsPerPageOptions]="[10, 25, 50]"
+						responsiveLayout="scroll"
+						[showCurrentPageReport]="true"
+						[globalFilterFields]="filters"
+						[(selection)]="selectedItems"
+						selectionMode="multiple"
+						(onRowSelect)="onRowSelect($event)"
+						(onRowUnselect)="onRowUnselect($event.data)"
+						[filterDelay]="100"
+						currentPageReportTemplate="Exibindo {first} de {totalRecords} resultado(s)">
+				<ng-template pTemplate="caption">
+					<div class="d-flex justify-content-between align-items-end flex-wrap col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+						<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+							<p *ngIf="!loading">
+								<small> {{ list.length }} resultado(s) </small>
+							</p>
+							<p *ngIf="selectedItems.length > 0">
+								<small> ({{selectedItems.length}}) linhas selecionadas </small>
+							</p>
+						</div>
+						<div class="p-input-icon-left col-xl-3 col-lg-3 col-md-5 col-sm-12 col-12 p-0">
+							<i class="pi pi-search"></i>
+							<input pInputText
+									 type="text"
+									 class="form-control"
+									 (input)="dt.filterGlobal(filter.value , 'contains')"
+									 #filter
+									 placeholder="Pesquisar" />
+						</div>
+					</div>
+				</ng-template>
+				<ng-template pTemplate="header" let-columns>
+					<tr>
+						<th>
+							<p-tableHeaderCheckbox *ngIf="list.length > 0"></p-tableHeaderCheckbox>
+						</th>
+						<th [pSortableColumn]="item.field"
+							 [attr.data-name]="'filterMenu_' + item.field"
+							 *ngFor="let item of cols">
+							<div class="d-flex align-items-center justify-content-between">
+								<span class="mr-auto">{{ item.header }}</span>
+							</div>
+						</th>
+						<th></th>
+					</tr>
+				</ng-template>
+				<ng-template pTemplate="body"
+								 let-item
+								 let-columns="columns"
+								 let-rowIndex="rowIndex">
+					<tr [class.selected]="item == selected"
+						 [class.selected-many]="selectedItems.includes(item)">
+						 <td>
+							<p-tableCheckbox [value]="item"></p-tableCheckbox>
+						</td>
+						<td [pSelectableRow]="item" [pSelectableRowIndex]="rowIndex"> {{ item.id }} </td>
+						<td [pSelectableRow]="item" [pSelectableRowIndex]="rowIndex"> {{ item.nome }} </td>
+                        <td class="td-actions">
+							<div class="actions">
+								<button class="actions__toggle"
+										  [class.active]="item == selected">
+									<span class="icon icon-ellipsis"
+											(click)="onRowSelect(item)">
+										<fa-icon [icon]="faEllipsisV"></fa-icon>
+									</span>
+									<span class="icon icon-times"
+											(click)="onRowUnselect(item)">
+										<fa-icon [icon]="faTimes"></fa-icon>
+									</span>
+								</button>
+							</div>
+						</td>
+					</tr>
+				</ng-template>
+				<ng-template pTemplate="emptymessage" let-columns>
+					<tr>
+						<td></td>
+						<td [attr.colspan]="cols.length"
+							 *ngIf="list.length == 0 && !loading" [innerHTML]="mensagem"></td>
+						<td [attr.colspan]="cols.length"
+							 *ngIf="loading"> Carregando.. </td>
+						<td></td>
+					</tr>
+				</ng-template>
+			</p-table>
+		</div>
+	</div>
+</section>
+<div class="actions__nav">
+	<div class="actions__nav-inner" *ngIf="selected">
+		<a class="actions__nav-link" [routerLink]="['editar', selected.id]">Editar</a>
+		<a class="actions__nav-link" [routerLink]="['excluir', selected.id]">Excluir</a>
+	</div>
+</div>
+<router-outlet></router-outlet>

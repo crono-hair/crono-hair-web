@@ -8,6 +8,11 @@ import { EditComponent } from './edit/edit.component';
 import { DeleteComponent } from './delete/delete.component';
 import { AgendamentosComponent } from './agendamentos/agendamentos.component';
 import { FilterComponent } from './filter/filter.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
+import { TableModule } from 'primeng/table';
+import { NgxMaskModule } from 'ngx-mask';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 @NgModule({
@@ -21,7 +26,12 @@ import { FilterComponent } from './filter/filter.component';
   ],
   imports: [
     CommonModule,
-    FuncionariosRoutingModule
+    FuncionariosRoutingModule,
+		FontAwesomeModule,
+		FormsModule,
+    TableModule,
+		NgxMaskModule.forChild(),
+    FullCalendarModule
   ]
 })
 export class FuncionariosModule { }

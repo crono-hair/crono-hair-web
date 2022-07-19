@@ -1,17 +1,16 @@
-# Documentação
 
-https://angular.io/cli
-
-
-
-## Para rodar o projeto
-ng serve --open
-
-
-## Para instalar os pacotes
-npm install
-
-#### Use isso sempre que atualizar o github com pull
+> <strong>*Documentação Angular*</strong>
+> https://angular.io/cli
+>
+> <strong>*Para instalar os pacotes:*</strong>
+> *npm install*
+>
+> <strong>*Para rodar o projeto:*</strong>
+>
+> *npm start* ou *ng serve --open*
+>
+>
+> OBS: sempre bom observar atualização de bibliotecas quando fizer pull no github
 
 
 ## Para gerar um componente

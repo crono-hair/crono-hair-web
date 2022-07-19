@@ -16,8 +16,17 @@ import { CurrencyPipe, DatePipe, registerLocaleData } from '@angular/common';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import localePt from '@angular/common/locales/pt';
 import { AlertComponent } from './parts/alert/alert.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+import listPlugin from '@fullcalendar/list';
+import { CargoComponent } from './modules/cargo/cargo.component';
+import { CreateComponent } from './modules/cargo/create/create.component';
+import { EditComponent } from './modules/cargo/edit/edit.component';
+import { DeleteComponent } from './modules/cargo/delete/delete.component'; // a plugin!
 
 registerLocaleData(localePt);
+FullCalendarModule.registerPlugins([interactionPlugin, dayGridPlugin, listPlugin]);
 
 const maskConfig: Partial<IConfig> = {
   validation: true,
@@ -39,6 +48,7 @@ const maskConfig: Partial<IConfig> = {
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
+    FullCalendarModule,
     ToastrModule.forRoot(
 			{
 				preventDuplicates: true,

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { faBars, faIdCard, faSignOut, faTimes } from '@fortawesome/free-solid-svg-icons';
 import * as $ from 'jquery';
 import { NavigationBar } from 'src/app/helpers/navigation-bar';
+import { Usuario } from 'src/app/models/usuario.model';
 import { AccountService } from 'src/app/services/account.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class HeaderComponent implements OnInit {
   faIdCard = faIdCard;
   userLogadoOpen = false;
   menuLateralOpen: boolean = false;
+  userLogado?: Usuario;
 
   constructor(
     private router: Router,
@@ -25,6 +27,7 @@ export class HeaderComponent implements OnInit {
   ) {
     this.navigationBar.open.subscribe(res => this.menuLateralOpen = res);
     this.navigationBar.menuHeaderOpen.subscribe(res => this.userLogadoOpen = res);
+    this.accountService.userLogado.subscribe(res => this.userLogado = res)
    }
 
   ngOnInit(): void {

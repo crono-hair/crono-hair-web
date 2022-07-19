@@ -28,13 +28,15 @@ export class NavigationComponent implements OnInit {
       { title: 'Funcionários', icon: faBuildingUser, url: 'funcionarios' },
       { title: 'Produtos', icon: faIdCard, url: 'produtos' },
       { title: 'Usuários', icon: faIdCard, url: 'users' },
+      { title: 'Salão', icon: faIdCard, url: 'salao' },
     ]
+
     this.dados = [
       {
-        title: 'Técnico inspeção', icon: faIdCardAlt, url: '', subLinks: [
+        title: 'Cargos de funcionários', icon: faIdCardAlt, url: '/cargos', /*subLinks: [
           { title: 'Listagem', url: '/inspetor', icon: faList },
           { title: 'Cadastrar', url: '/inspetor/create', icon: faPlus },
-        ]
+        ]*/
       }
     ];
 
